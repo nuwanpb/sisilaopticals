@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sisila Opticals | Your Trusted Optical Partner</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2563eb',
+                        secondary: '#14b8a6',
+                        dark: '#1e293b',
+                        light: '#f1f5f9',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-light text-dark font-sans">
+
+    <!-- Navigation Bar -->
+    <header class="bg-primary text-white">
+        <div class="container mx-auto flex justify-between items-center p-4">
+            <h1 class="text-2xl font-bold">Sisila Opticals</h1>
+            <nav>
+                <ul class="flex space-x-6">
+                    <li><a href="#" class="hover:text-secondary">Home</a></li>
+                    <li><a href="#products" class="hover:text-secondary">Products</a></li>
+                    <li><a href="#about" class="hover:text-secondary">About</a></li>
+                    <li><a href="#contact" class="hover:text-secondary">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-cover bg-center h-[450px] flex items-center justify-center text-center text-white" style="background-image: url('https://source.unsplash.com/1600x900/?glasses,eyewear');">
+        <div class="bg-black bg-opacity-50 p-8 rounded-lg">
+            <h2 class="text-4xl font-bold mb-3">See the World Clearly</h2>
+            <p class="text-lg">Your Trusted Optical Partner for 30+ Years</p>
+            <a href="#products" class="mt-4 inline-block bg-secondary text-white px-6 py-2 rounded-lg hover:bg-teal-500 transition">Shop Now</a>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="container mx-auto my-12 px-4">
+        <h2 class="text-3xl font-bold text-center mb-8">Our Products</h2>
+        <div class="grid md:grid-cols-2 gap-6">
+            <!-- Prescription Glasses -->
+            <div class="bg-white shadow-lg p-6 rounded-lg">
+                <img src="https://source.unsplash.com/400x300/?prescription-glasses" alt="Prescription Glasses" class="w-full h-48 object-cover rounded">
+                <h3 class="text-xl font-semibold mt-4">Prescription Glasses</h3>
+                <p class="text-gray-600 mt-2">Custom lenses for your perfect vision.</p>
+                <a href="#" class="inline-block mt-3 text-primary hover:underline">View More</a>
+            </div>
+            <!-- Sunglasses -->
+            <div class="bg-white shadow-lg p-6 rounded-lg">
+                <img src="https://source.unsplash.com/400x300/?sunglasses" alt="Sunglasses" class="w-full h-48 object-cover rounded">
+                <h3 class="text-xl font-semibold mt-4">Sunglasses</h3>
+                <p class="text-gray-600 mt-2">Protect your eyes with stylish sunglasses.</p>
+                <a href="#" class="inline-block mt-3 text-primary hover:underline">View More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="bg-gray-100 py-12">
+        <div class="container mx-auto text-center px-4">
+            <h2 class="text-3xl font-bold">About Sisila Opticals</h2>
+            <p class="mt-4 text-gray-600 max-w-2xl mx-auto">
+                Sisila Opticals has been serving the Akuressa community for over 30 years. We specialize in high-quality prescription glasses and stylish sunglasses that blend comfort and fashion.
+            </p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="container mx-auto my-12 px-4">
+        <h2 class="text-3xl font-bold text-center mb-6">Contact Us</h2>
+        <div class="grid md:grid-cols-2 gap-8">
+            <!-- Contact Info -->
+            <div class="bg-white shadow-lg p-6 rounded-lg">
+                <h3 class="text-xl font-semibold">Our Location</h3>
+                <p class="text-gray-600 mt-2">📍 #24, Wesco Building, Akuressa, Sri Lanka</p>
+                <p class="text-gray-600 mt-2">📞 +94 71 234 5678</p>
+                <p class="text-gray-600 mt-2">✉️ sisilaopticals@example.com</p>
+            </div>
+            <!-- Google Map -->
+            <div class="bg-white shadow-lg p-6 rounded-lg">
+                <h3 class="text-xl font-semibold mb-3">Find Us on Google Maps</h3>
+                <iframe class="w-full h-48 rounded-lg" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.1713188225516!2d80.4561125156148!3d6.218012013505125!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae1394f7f1e5b3f%3A0x1a1a1f3d1a5b3c4b!2sAkuressa%2C%20Sri%20Lanka!5e0!3m2!1sen!2sus!4v1646581234567" allowfullscreen loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-4 mt-8">
+        <p>&copy; 2025 Sisila Opticals | All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
