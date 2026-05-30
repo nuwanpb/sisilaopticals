@@ -1,0 +1,1270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="SISILA OPTICALS - Professional eye care and eyewear in Akuressa, Sri Lanka. Eye testing, prescription glasses, sunglasses, contact lenses and more.">
+<title>SISILA OPTICALS | Clear Vision, Brighter World</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0a1628;
+    --navy-mid: #122240;
+    --navy-light: #1e3a5f;
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --cream: #f8f5f0;
+    --cream-mid: #f0ebe2;
+    --white: #ffffff;
+    --text-dark: #0a1628;
+    --text-mid: #3a5070;
+    --text-light: #6b8aaa;
+    --border: rgba(10,22,40,0.12);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--text-dark);
+    background: var(--cream);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 1000;
+    background: rgba(10,22,40,0.97);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 4rem; height: 72px;
+  }
+  .logo {
+    display: flex; align-items: center; gap: 14px;
+    text-decoration: none;
+  }
+  .logo-icon {
+    width: 40px; height: 40px;
+    border: 2px solid var(--gold);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+  }
+  .logo-text { color: var(--white); }
+  .logo-text .brand { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 600; letter-spacing: 2px; color: var(--gold-light); display: block; }
+  .logo-text .sub { font-size: 10px; letter-spacing: 3px; color: rgba(255,255,255,0.5); text-transform: uppercase; }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    color: rgba(255,255,255,0.7); text-decoration: none;
+    font-size: 13px; letter-spacing: 1px; text-transform: uppercase;
+    transition: color 0.2s; padding-bottom: 4px;
+    border-bottom: 1px solid transparent;
+  }
+  .nav-links a:hover, .nav-links a.active { color: var(--gold-light); border-bottom-color: var(--gold); }
+  .nav-cta {
+    background: var(--gold); color: var(--navy);
+    padding: 9px 22px; border-radius: 2px;
+    font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase;
+    text-decoration: none; font-weight: 500;
+    transition: background 0.2s;
+  }
+  .nav-cta:hover { background: var(--gold-light); }
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+  .hamburger span { width: 24px; height: 1.5px; background: var(--white); transition: 0.3s; }
+
+  /* ── PAGES ── */
+  .page { display: none; padding-top: 72px; min-height: 100vh; }
+  .page.active { display: block; }
+
+  /* ── HOME ── */
+  .hero {
+    height: calc(100vh - 72px);
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 60%, #2a4f7a 100%);
+    display: flex; align-items: center;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 70% 50%, rgba(201,168,76,0.08) 0%, transparent 60%);
+  }
+  .hero-bg-text {
+    position: absolute; right: -2rem; top: 50%; transform: translateY(-50%);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22vw; font-weight: 300;
+    color: rgba(255,255,255,0.03); line-height: 1;
+    pointer-events: none; user-select: none;
+  }
+  .hero-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    align-items: center; gap: 4rem;
+    max-width: 1200px; margin: 0 auto; padding: 0 4rem;
+    position: relative; z-index: 1;
+  }
+  .hero-tag {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: rgba(201,168,76,0.15); border: 1px solid rgba(201,168,76,0.3);
+    padding: 6px 18px; border-radius: 100px; margin-bottom: 1.5rem;
+  }
+  .hero-tag span { font-size: 11px; letter-spacing: 2px; color: var(--gold-light); text-transform: uppercase; }
+  .hero-tag::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); }
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 5vw, 5rem);
+    font-weight: 300; color: var(--white); line-height: 1.1;
+    margin-bottom: 1.5rem;
+  }
+  .hero h1 em { font-style: italic; color: var(--gold-light); }
+  .hero p { font-size: 16px; color: rgba(255,255,255,0.65); line-height: 1.8; margin-bottom: 2.5rem; max-width: 420px; }
+  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--gold); color: var(--navy);
+    padding: 14px 32px; border-radius: 2px;
+    font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase;
+    font-weight: 500; cursor: pointer; border: none;
+    transition: background 0.2s; text-decoration: none; display: inline-block;
+  }
+  .btn-primary:hover { background: var(--gold-light); }
+  .btn-outline {
+    background: transparent; color: var(--white);
+    padding: 13px 32px; border-radius: 2px;
+    font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase;
+    border: 1px solid rgba(255,255,255,0.3); cursor: pointer;
+    transition: border-color 0.2s, color 0.2s; text-decoration: none; display: inline-block;
+  }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold-light); }
+  .hero-visual {
+    display: flex; align-items: center; justify-content: center;
+  }
+  .glasses-svg-wrap {
+    position: relative;
+    width: 380px; height: 220px;
+  }
+  .glasses-svg-wrap svg { width: 100%; height: 100%; }
+  .stats-bar {
+    background: var(--white);
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    border-bottom: 3px solid var(--gold);
+  }
+  .stat-item {
+    padding: 2rem;
+    border-right: 1px solid var(--border);
+    text-align: center;
+  }
+  .stat-item:last-child { border-right: none; }
+  .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 2.8rem; font-weight: 300; color: var(--navy); line-height: 1; }
+  .stat-label { font-size: 12px; letter-spacing: 1.5px; color: var(--text-light); text-transform: uppercase; margin-top: 6px; }
+
+  .section { padding: 6rem 4rem; max-width: 1200px; margin: 0 auto; }
+  .section-tag { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 0.75rem; }
+  .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 300; color: var(--navy); line-height: 1.2; }
+  .section-title em { font-style: italic; color: var(--text-mid); }
+  .section-sub { font-size: 15px; color: var(--text-light); line-height: 1.8; max-width: 560px; margin-top: 1rem; }
+  .section-header { margin-bottom: 3.5rem; }
+
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); }
+  .service-card {
+    background: var(--white); padding: 2.5rem 2rem;
+    transition: background 0.3s;
+  }
+  .service-card:hover { background: var(--navy); }
+  .service-card:hover .sc-title { color: var(--white); }
+  .service-card:hover .sc-desc { color: rgba(255,255,255,0.6); }
+  .service-card:hover .sc-icon { color: var(--gold-light); border-color: rgba(201,168,76,0.4); }
+  .sc-icon {
+    font-size: 28px; width: 60px; height: 60px;
+    border: 1px solid var(--border);
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    color: var(--navy); margin-bottom: 1.5rem;
+    transition: color 0.3s, border-color 0.3s;
+  }
+  .sc-title { font-size: 17px; font-weight: 500; color: var(--navy); margin-bottom: 0.75rem; transition: color 0.3s; }
+  .sc-desc { font-size: 14px; color: var(--text-light); line-height: 1.7; transition: color 0.3s; }
+
+  .home-about { background: var(--navy); padding: 6rem 4rem; }
+  .home-about-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+  .about-img-mock {
+    aspect-ratio: 4/3;
+    background: var(--navy-mid);
+    border: 5px solid rgba(201,168,76,0.2);
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+  }
+  .about-img-mock::before {
+    content: '';
+    position: absolute; width: 200px; height: 200px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,168,76,0.15), transparent);
+  }
+  .about-img-mock span { font-family: 'Cormorant Garamond', serif; font-size: 5rem; color: rgba(201,168,76,0.3); }
+  .about-text .section-tag { color: var(--gold); }
+  .about-text .section-title { color: var(--white); }
+  .about-text .section-sub { color: rgba(255,255,255,0.6); }
+  .about-features { margin-top: 2rem; display: flex; flex-direction: column; gap: 1rem; }
+  .af-item { display: flex; align-items: center; gap: 12px; }
+  .af-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
+  .af-text { font-size: 14px; color: rgba(255,255,255,0.7); }
+
+  /* ── ABOUT PAGE ── */
+  .about-hero { background: var(--navy); padding: 5rem 4rem 4rem; text-align: center; }
+  .about-hero .section-tag { color: var(--gold); display: block; margin-bottom: 0.5rem; }
+  .about-hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem,5vw,4rem); color: var(--white); font-weight: 300; }
+  .about-hero h1 em { color: var(--gold-light); }
+  .page-content { padding: 5rem 4rem; max-width: 1200px; margin: 0 auto; }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+  .body-text { font-size: 15px; color: var(--text-mid); line-height: 1.9; }
+  .body-text p + p { margin-top: 1.2rem; }
+  .pull-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem; font-style: italic; font-weight: 300;
+    color: var(--navy); border-left: 3px solid var(--gold);
+    padding-left: 1.5rem; margin: 2rem 0;
+    line-height: 1.5;
+  }
+  .mv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2rem; }
+  .mv-card {
+    background: var(--white); padding: 2rem;
+    border: 1px solid var(--border);
+  }
+  .mv-card h3 { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
+  .mv-card p { font-size: 14px; color: var(--text-mid); line-height: 1.7; }
+  .team-section { background: var(--cream-mid); padding: 5rem 4rem; }
+  .team-inner { max-width: 1200px; margin: 0 auto; }
+  .team-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2rem; margin-top: 3rem; }
+  .team-card {
+    background: var(--white); border: 1px solid var(--border);
+    text-align: center; overflow: hidden;
+  }
+  .team-avatar {
+    height: 200px; background: var(--navy);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Cormorant Garamond', serif; font-size: 4rem;
+    color: rgba(201,168,76,0.4);
+  }
+  .team-info { padding: 1.5rem; }
+  .team-info h4 { font-size: 16px; color: var(--navy); margin-bottom: 4px; }
+  .team-info span { font-size: 12px; letter-spacing: 1px; color: var(--gold); text-transform: uppercase; }
+  .why-section { padding: 5rem 4rem; max-width: 1200px; margin: 0 auto; }
+  .why-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.5rem; margin-top: 3rem; }
+  .why-card { text-align: center; padding: 2rem 1.5rem; }
+  .why-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+  .why-card h4 { font-size: 15px; color: var(--navy); margin-bottom: 0.5rem; font-weight: 500; }
+  .why-card p { font-size: 13px; color: var(--text-light); line-height: 1.6; }
+
+  /* ── SERVICES PAGE ── */
+  .services-hero { background: var(--navy); padding: 5rem 4rem 4rem; text-align: center; }
+  .services-hero .section-tag { color: var(--gold); display: block; margin-bottom: 0.5rem; }
+  .services-hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem,5vw,4rem); color: var(--white); font-weight: 300; }
+  .services-full { padding: 5rem 4rem; max-width: 1200px; margin: 0 auto; }
+  .service-row {
+    display: grid; grid-template-columns: 1fr 2fr;
+    gap: 3rem; padding: 3rem 0;
+    border-bottom: 1px solid var(--border);
+    align-items: start;
+  }
+  .service-row:last-child { border-bottom: none; }
+  .sr-left { position: sticky; top: 120px; }
+  .sr-num { font-family: 'Cormorant Garamond', serif; font-size: 4rem; color: var(--cream-mid); font-weight: 300; line-height: 1; margin-bottom: 1rem; }
+  .sr-icon-big { font-size: 2rem; margin-bottom: 1rem; }
+  .sr-title { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; color: var(--navy); font-weight: 300; }
+  .sr-right h4 { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
+  .sr-right p { font-size: 15px; color: var(--text-mid); line-height: 1.8; margin-bottom: 1.5rem; }
+  .features-list { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+  .feature-tag {
+    background: var(--cream-mid); border: 1px solid var(--border);
+    padding: 6px 14px; font-size: 12px; color: var(--text-mid);
+    border-radius: 100px;
+  }
+
+  /* ── PRODUCTS PAGE ── */
+  .products-hero { background: var(--navy); padding: 5rem 4rem 4rem; text-align: center; }
+  .products-hero .section-tag { color: var(--gold); display: block; margin-bottom: 0.5rem; }
+  .products-hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem,5vw,4rem); color: var(--white); font-weight: 300; }
+  .products-section { padding: 4rem; max-width: 1200px; margin: 0 auto; }
+  .filter-bar {
+    display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 3rem;
+    padding-bottom: 2rem; border-bottom: 1px solid var(--border);
+  }
+  .filter-btn {
+    padding: 8px 20px; font-size: 12px; letter-spacing: 1px; text-transform: uppercase;
+    border: 1px solid var(--border); background: transparent;
+    cursor: pointer; transition: all 0.2s; color: var(--text-mid);
+    border-radius: 100px;
+  }
+  .filter-btn.active, .filter-btn:hover { background: var(--navy); color: var(--white); border-color: var(--navy); }
+  .products-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
+  .product-card { background: var(--white); border: 1px solid var(--border); overflow: hidden; transition: transform 0.2s; }
+  .product-card:hover { transform: translateY(-4px); }
+  .product-img {
+    height: 220px; background: var(--cream-mid);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 5rem; position: relative; overflow: hidden;
+  }
+  .product-badge {
+    position: absolute; top: 12px; left: 12px;
+    background: var(--navy); color: var(--gold-light);
+    font-size: 10px; letter-spacing: 1px; text-transform: uppercase;
+    padding: 4px 10px;
+  }
+  .product-info { padding: 1.25rem; }
+  .product-info h4 { font-size: 15px; color: var(--navy); margin-bottom: 4px; font-weight: 500; }
+  .product-info .brand { font-size: 11px; letter-spacing: 1.5px; color: var(--text-light); text-transform: uppercase; margin-bottom: 0.75rem; }
+  .product-price { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; color: var(--navy); }
+  .product-price span { font-size: 11px; color: var(--text-light); font-family: 'DM Sans', sans-serif; }
+
+  /* ── APPOINTMENT PAGE ── */
+  .appt-hero { background: var(--navy); padding: 5rem 4rem 4rem; text-align: center; }
+  .appt-hero .section-tag { color: var(--gold); display: block; margin-bottom: 0.5rem; }
+  .appt-hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem,5vw,4rem); color: var(--white); font-weight: 300; }
+  .appt-section { padding: 5rem 4rem; max-width: 1200px; margin: 0 auto; }
+  .appt-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; }
+  .appt-info h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; color: var(--navy); margin-bottom: 1rem; font-weight: 300; }
+  .appt-info p { font-size: 14px; color: var(--text-light); line-height: 1.8; margin-bottom: 2rem; }
+  .hours-list { display: flex; flex-direction: column; gap: 0; }
+  .hours-item {
+    display: flex; justify-content: space-between;
+    padding: 0.75rem 0; border-bottom: 1px solid var(--border);
+    font-size: 14px;
+  }
+  .hours-item .day { color: var(--text-mid); }
+  .hours-item .time { color: var(--navy); font-weight: 500; }
+  .form-group { margin-bottom: 1.5rem; }
+  .form-group label { display: block; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-light); margin-bottom: 8px; }
+  .form-group input, .form-group select, .form-group textarea {
+    width: 100%; padding: 12px 16px;
+    border: 1px solid var(--border); background: var(--white);
+    font-family: 'DM Sans', sans-serif; font-size: 14px;
+    color: var(--text-dark); outline: none;
+    transition: border-color 0.2s;
+  }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--navy); }
+  .form-group textarea { resize: vertical; min-height: 100px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .success-msg {
+    display: none; background: var(--navy);
+    color: var(--gold-light); padding: 1.5rem 2rem;
+    border-left: 3px solid var(--gold);
+    font-size: 14px; line-height: 1.7; margin-top: 1rem;
+  }
+
+  /* ── CONTACT PAGE ── */
+  .contact-hero { background: var(--navy); padding: 5rem 4rem 4rem; text-align: center; }
+  .contact-hero .section-tag { color: var(--gold); display: block; margin-bottom: 0.5rem; }
+  .contact-hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem,5vw,4rem); color: var(--white); font-weight: 300; }
+  .contact-section { padding: 5rem 4rem; max-width: 1200px; margin: 0 auto; }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; }
+  .contact-details { display: flex; flex-direction: column; gap: 2rem; }
+  .contact-item { display: flex; gap: 1.25rem; align-items: flex-start; }
+  .ci-icon {
+    width: 44px; height: 44px; border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; flex-shrink: 0; color: var(--navy);
+  }
+  .ci-info label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 4px; }
+  .ci-info p { font-size: 14px; color: var(--text-mid); line-height: 1.6; }
+  .map-placeholder {
+    background: var(--cream-mid); border: 1px solid var(--border);
+    height: 280px; display: flex; align-items: center; justify-content: center;
+    flex-direction: column; gap: 1rem; margin-top: 2rem; color: var(--text-light);
+    font-size: 14px;
+  }
+  .map-placeholder span { font-size: 2.5rem; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--navy); color: rgba(255,255,255,0.6);
+    padding: 4rem 4rem 2rem;
+  }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; max-width: 1200px; margin: 0 auto 3rem; }
+  .footer-brand .logo-text .brand { font-size: 22px; }
+  .footer-tagline { font-size: 13px; color: rgba(255,255,255,0.4); margin-top: 0.75rem; line-height: 1.7; max-width: 260px; }
+  .social-row { display: flex; gap: 0.75rem; margin-top: 1.5rem; }
+  .social-btn {
+    width: 36px; height: 36px; border: 1px solid rgba(255,255,255,0.15);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; cursor: pointer; transition: border-color 0.2s;
+    color: rgba(255,255,255,0.5); text-decoration: none;
+  }
+  .social-btn:hover { border-color: var(--gold); color: var(--gold-light); }
+  .footer-col h5 { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 1.25rem; }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+  .footer-col ul a { font-size: 13px; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s; cursor: pointer; }
+  .footer-col ul a:hover { color: var(--gold-light); }
+  .footer-bottom { max-width: 1200px; margin: 0 auto; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.08); display: flex; justify-content: space-between; align-items: center; }
+  .footer-bottom p { font-size: 12px; color: rgba(255,255,255,0.3); }
+  .wa-btn {
+    position: fixed; bottom: 2rem; right: 2rem; z-index: 999;
+    background: #25D366; color: white;
+    width: 52px; height: 52px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px; box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+    text-decoration: none; transition: transform 0.2s;
+  }
+  .wa-btn:hover { transform: scale(1.1); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 0 1.5rem; }
+    .nav-links, .nav-cta { display: none; }
+    .hamburger { display: flex; }
+    .nav-links.open {
+      display: flex; flex-direction: column;
+      position: fixed; inset: 72px 0 0; background: var(--navy);
+      padding: 2rem; gap: 1.5rem; z-index: 999;
+    }
+    .nav-links.open .nav-cta { display: inline-block; }
+    .hero-grid, .home-about-inner, .two-col, .appt-grid, .contact-grid { grid-template-columns: 1fr; }
+    .hero-visual { display: none; }
+    .section, .page-content, .services-full, .products-section, .appt-section, .contact-section, .why-section { padding: 3rem 1.5rem; }
+    .home-about { padding: 3rem 1.5rem; }
+    .hero { height: auto; padding: 4rem 1.5rem; }
+    .stats-bar { grid-template-columns: 1fr 1fr; }
+    .services-grid { grid-template-columns: 1fr; }
+    .team-grid, .why-grid { grid-template-columns: 1fr 1fr; }
+    .products-grid { grid-template-columns: 1fr 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .about-hero, .services-hero, .products-hero, .appt-hero, .contact-hero { padding: 3rem 1.5rem 2rem; }
+    .mv-grid { grid-template-columns: 1fr; }
+    .service-row { grid-template-columns: 1fr; }
+    .sr-left { position: static; }
+    .form-row { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<!-- Paste this in your <head> or before your closing </body> -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+
+<script>
+  // Initialize once — use your actual Public Key
+  emailjs.init({ publicKey: 'cygJC93ArY3IQv418' });
+</script>
+
+<!-- NAV -->
+<nav>
+  <a class="logo" href="#" onclick="showPage('home')">
+    <div class="logo-icon">👁</div>
+    <div class="logo-text">
+      <span class="brand">SISILA</span>
+      <span class="sub">Opticals</span>
+    </div>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#" class="active" onclick="showPage('home')">Home</a></li>
+    <li><a href="#" onclick="showPage('about')">About</a></li>
+    <li><a href="#" onclick="showPage('services')">Services</a></li>
+    <li><a href="#" onclick="showPage('products')">Products</a></li>
+    <li><a href="#" onclick="showPage('appointment')">Appointments</a></li>
+    <li><a href="#" onclick="showPage('contact')">Contact</a></li>
+    <li><a href="#" class="nav-cta" onclick="showPage('appointment')">Book Now</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- ═══════════ HOME ═══════════ -->
+<div class="page active" id="page-home">
+  <section class="hero" <img src="logo2.jpg" alt="SISILA OPTICALS Logo"> href="#">
+    <div class="hero-bg-text">👁</div>
+    <div class="hero-grid">
+      <div class="hero-content">
+        <div class="hero-tag"><span>Akuressa's Trusted Optical Experts</span></div>
+        <h1>See the World<br><em>Clearly & Beautifully</em></h1>
+        <p>Precision eye care, handpicked frames, and expert optometry — all in the heart of Akuressa, Sri Lanka.</p>
+        <div class="hero-btns">
+          <a class="btn-primary" href="#" onclick="showPage('appointment')">Book Eye Test</a>
+          <a class="btn-outline" href="#" onclick="showPage('services')">Our Services</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="glasses-svg-wrap">
+          <svg viewBox="0 0 380 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Frame -->
+            <rect x="10" y="60" width="150" height="100" rx="50" stroke="#c9a84c" stroke-width="6" fill="none" opacity="0.8"/>
+            <rect x="220" y="60" width="150" height="100" rx="50" stroke="#c9a84c" stroke-width="6" fill="none" opacity="0.8"/>
+            <line x1="160" y1="90" x2="220" y2="90" stroke="#c9a84c" stroke-width="4" opacity="0.8"/>
+            <line x1="10" y1="90" x2="-20" y2="70" stroke="#c9a84c" stroke-width="4" opacity="0.6"/>
+            <line x1="370" y1="90" x2="400" y2="70" stroke="#c9a84c" stroke-width="4" opacity="0.6"/>
+            <!-- Lens shine -->
+            <ellipse cx="85" cy="110" rx="55" ry="40" fill="rgba(201,168,76,0.05)"/>
+            <ellipse cx="295" cy="110" rx="55" ry="40" fill="rgba(201,168,76,0.05)"/>
+            <line x1="50" y1="80" x2="60" y2="95" stroke="rgba(255,255,255,0.3)" stroke-width="2" stroke-linecap="round"/>
+            <line x1="260" y1="80" x2="270" y2="95" stroke="rgba(255,255,255,0.3)" stroke-width="2" stroke-linecap="round"/>
+            <!-- Floating dots -->
+            <circle cx="190" cy="30" r="3" fill="#c9a84c" opacity="0.5"/>
+            <circle cx="50" cy="30" r="2" fill="#c9a84c" opacity="0.3"/>
+            <circle cx="330" cy="170" r="2" fill="#c9a84c" opacity="0.3"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <div class="stats-bar">
+    <div class="stat-item"><div class="stat-num">30+</div><div class="stat-label">Years of Service</div></div>
+    <div class="stat-item"><div class="stat-num">20K+</div><div class="stat-label">Happy Clients</div></div>
+    <div class="stat-item"><div class="stat-num">200+</div><div class="stat-label">Frame Styles</div></div>
+    <div class="stat-item"><div class="stat-num">100%</div><div class="stat-label">Quality Assured</div></div>
+  </div>
+
+  <!-- Services preview -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-tag">What We Offer</div>
+      <h2 class="section-title">Expert Services for<br><em>Every Vision Need</em></h2>
+      <p class="section-sub">From comprehensive eye examinations to stylish frames, we provide complete optical care under one roof.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="sc-icon">🔬</div>
+        <div class="sc-title">Eye Examinations</div>
+        <div class="sc-desc">Comprehensive vision tests using modern equipment to detect refractive errors and eye health conditions.</div>
+      </div>
+      <div class="service-card">
+        <div class="sc-icon">👓</div>
+        <div class="sc-title">Prescription Glasses</div>
+        <div class="sc-desc">Custom-crafted lenses in hundreds of frame styles to suit your prescription and personality.</div>
+      </div>
+      <div class="service-card">
+        <div class="sc-icon">🕶️</div>
+        <div class="sc-title">Sunglasses</div>
+        <div class="sc-desc">UV-protected sunwear blending style and safety for the tropical Sri Lankan climate.</div>
+      </div>
+      <div class="service-card">
+        <div class="sc-icon">🟤</div>
+        <div class="sc-title">Contact Lenses</div>
+        <div class="sc-desc">Daily, monthly, and toric contact lenses with expert fitting guidance for first-time users.</div>
+      </div>
+      <div class="service-card">
+        <div class="sc-icon">🔧</div>
+        <div class="sc-title">Frame Repairs</div>
+        <div class="sc-desc">Quick and affordable repairs for broken frames, loose screws, nose pads, and hinges.</div>
+      </div>
+      <div class="service-card">
+        <div class="sc-icon">👶</div>
+        <div class="sc-title">Kids Eyewear</div>
+        <div class="sc-desc">Fun, durable frames and gentle vision care designed specifically for children aged 3 and above.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Home About -->
+  <div class="home-about">
+    <div class="home-about-inner">
+      	<div class="about-img-mock">
+  	<img src="images/Careing.png" alt="About Us" style="width:100%; height:100%; object-fit:cover; display:block;">
+	</div>
+      <div class="about-text">
+        <div class="section-tag">Our Story</div>
+        <h2 class="section-title" style="color:var(--white)">Caring for Akuressa's<br><em style="color:var(--gold-light)">Vision for 30 Years</em></h2>
+        <p class="section-sub">SISILA OPTICALS was founded with a simple belief: clear vision changes lives. From humble beginnings on Kamburupitiya Road, we have grown into the most trusted 	optical provider in the Akuressa region.</p>
+        <div class="about-features">
+          <div class="af-item"><div class="af-dot"></div><div class="af-text">Certified optometrists</div></div>
+          <div class="af-item"><div class="af-dot"></div><div class="af-text">Diagnostic equipment</div></div>
+          <div class="af-item"><div class="af-dot"></div><div class="af-text">Affordable pricing with no compromise on quality</div></div>
+          <div class="af-item"><div class="af-dot"></div><div class="af-text">Frames from leading international brands</div></div>
+        </div>
+        <div style="margin-top:2rem">
+          <a class="btn-outline" href="#" onclick="showPage('about')">Learn More About Us</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div style="background:var(--gold);padding:4rem;text-align:center">
+    <p style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--navy);margin-bottom:0.75rem">Ready to See Better?</p>
+    <h2 style="font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:300;color:var(--navy);margin-bottom:1.5rem">Book Your Eye Examination Today</h2>
+    <a class="btn-primary" style="background:var(--navy);color:var(--gold-light)" href="#" onclick="showPage('appointment')">Schedule Appointment</a>
+  </div>
+</div>
+
+<!-- ═══════════ ABOUT ═══════════ -->
+<div class="page" id="page-about">
+  <div class="about-hero">
+    <span class="section-tag">Our Story</span>
+    <h1>About <em>SISILA OPTICALS</em></h1>
+  </div>
+  <div class="page-content">
+    <div class="two-col">
+      <div>
+        <div class="section-tag">Who We Are</div>
+        <h2 class="section-title" style="margin-bottom:1.5rem">Serving Akuressa<br><em>with Pride & Precision</em></h2>
+        <div class="body-text">
+          <p>SISILA OPTICALS has been the cornerstone of eye health in Akuressa since our founding. Nestled on Kamburupitiya Road, we started as a small family-run shop and have grown into a full-service optical center trusted by thousands across the Matara district.</p>
+          <p>We believe that clear vision is not a luxury — it is a right. Our mission has always been to deliver professional optical care at accessible prices, ensuring that every person, from schoolchildren to seniors, can see the world at its best.</p>
+        </div>
+        <blockquote class="pull-quote">"Clear vision is the first step to a brighter future."</blockquote>
+        <div class="body-text">
+          <p>Our team of certified optometrists and trained optical technicians work with cutting-edge diagnostic tools to provide accurate prescriptions and personalized eyewear solutions. Whether you're a first-time glasses wearer or looking to upgrade your lenses, we're here every step of the way.</p>
+        </div>
+      </div>
+      <div>
+        <div class="mv-grid">
+          <div class="mv-card">
+            <h3>Our Mission</h3>
+            <p>To deliver world-class eye care and eyewear solutions to the people of Akuressa and beyond, making clear vision accessible to all.</p>
+          </div>
+          <div class="mv-card">
+            <h3>Our Vision</h3>
+            <p>To be the most trusted name in optical care across southern Sri Lanka, known for quality, compassion, and innovation.</p>
+          </div>
+          <div class="mv-card">
+            <h3>Our Values</h3>
+            <p>Honesty, excellence, and genuine care for our customers' wellbeing guide every decision we make.</p>
+          </div>
+          <div class="mv-card">
+            <h3>Our Promise</h3>
+            <p>Every customer leaves SISILA OPTICALS with the confidence that they are seeing the world at its very best.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="why-section">
+    <div class="section-tag">Why Choose Us</div>
+    <h2 class="section-title" style="margin-bottom:0">The SISILA Difference</h2>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">🎓</div>
+        <h4>Certified Experts</h4>
+        <p>Our optometrists hold professional certifications and undergo continuous training in the latest optical technologies.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🔬</div>
+        <h4>Modern Equipment</h4>
+        <p>We invest in the latest diagnostic tools for accurate eye testing, from digital retinoscopes to auto-refractors.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">💎</div>
+        <h4>Premium Quality</h4>
+        <p>All lenses and frames meet strict quality standards. We carry only brands we trust and stand behind fully.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">❤️</div>
+        <h4>Personal Care</h4>
+        <p>We treat every customer like family. Your comfort, style, and vision health are always our top priority.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="team-section">
+    <div class="team-inner">
+      <div class="section-tag">Our People</div>
+      <h2 class="section-title">Meet the Team</h2>
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-avatar"><img src="images/Nuwan Basnayaka.png" alt="Team Member Name" style="width:100%; height:100%; object-fit:cover; border-radius:20%;"></div>
+          <div class="team-info">
+            <h4>Mr.Nuwan Basnayake</h4>
+            <span>Managing Director</span>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar"><img src="images/Waruni.JPG" alt="Team Member Name" style="width:100%; height:100%; object-fit:cover; border-radius:20%;"></div>
+          <div class="team-info">
+            <h4>Waruni Gammanpila</h4>
+            <span>Senior Technical Technician</span>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar"><img src="images/Ruvidhi.JPG" alt="Team Member Name" style="width:100%; height:100%; object-fit:cover; border-radius:20%;"></div>
+          <div class="team-info">
+            <h4>Ruvidhi Basnayake</h4>
+            <span>Vision Care Specialist</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ SERVICES ═══════════ -->
+<div class="page" id="page-services">
+  <div class="services-hero">
+    <span class="section-tag">What We Do</span>
+    <h1>Our <em style="color:var(--gold-light);font-style:italic">Services</em></h1>
+  </div>
+  <div class="services-full">
+    <div class="service-row">
+      <div class="sr-left">
+        <div class="sr-num">01</div>
+        <div class="sr-icon-big">🔬</div>
+        <div class="sr-title">Eye Examinations</div>
+      </div>
+      <div class="sr-right">
+        <h4>Comprehensive Vision Testing</h4>
+        <p>Our eye examinations go far beyond simply reading a chart. Using advanced autorefractors, slit-lamp biomicroscopy, and digital fundus imaging, our certified optometrists assess your full ocular health — detecting conditions like myopia, hyperopia, astigmatism, glaucoma, and more at their earliest stages.</p>
+        <p>Each examination includes a detailed consultation where your optometrist explains the findings clearly and recommends the best path forward — whether that's spectacles, contact lenses, or referral to a specialist.</p>
+        <div class="features-list">
+          <span class="feature-tag">Visual Acuity Test</span>
+          <span class="feature-tag">Refraction Assessment</span>
+          <span class="feature-tag">Intraocular Pressure</span>
+          <span class="feature-tag">Retinal Examination</span>
+          <span class="feature-tag">Colour Vision Test</span>
+        </div>
+      </div>
+    </div>
+    <div class="service-row">
+      <div class="sr-left">
+        <div class="sr-num">02</div>
+        <div class="sr-icon-big">👓</div>
+        <div class="sr-title">Prescription Glasses</div>
+      </div>
+      <div class="sr-right">
+        <h4>Custom Lenses, Perfect Fit</h4>
+        <p>Every pair of prescription glasses we make is crafted to your exact measurements. We offer single-vision, bifocal, progressive, and occupational lenses in a wide range of materials including polycarbonate, high-index, and photochromic options.</p>
+        <p>Our in-store technicians use precision edging equipment to cut and fit lenses perfectly into your chosen frame, with most pairs ready within 24–48 hours.</p>
+        <div class="features-list">
+          <span class="feature-tag">Single Vision</span>
+          <span class="feature-tag">Bifocal Lenses</span>
+          <span class="feature-tag">Progressive Lenses</span>
+          <span class="feature-tag">Anti-Reflective Coating</span>
+          <span class="feature-tag">Blue Light Filter</span>
+          <span class="feature-tag">Photochromic</span>
+        </div>
+      </div>
+    </div>
+    <div class="service-row">
+      <div class="sr-left">
+        <div class="sr-num">03</div>
+        <div class="sr-icon-big">🕶️</div>
+        <div class="sr-title">Sunglasses</div>
+      </div>
+      <div class="sr-right">
+        <h4>Style Meets Sun Protection</h4>
+        <p>Sri Lanka's tropical sun demands serious UV protection. Our sunglasses collection combines 100% UV400 protection with contemporary designs — from polarized lenses that cut glare to gradient tints for everyday style.</p>
+        <p>We stock a carefully curated range of sunwear for men, women, and children, with options for prescription sun lenses as well.</p>
+        <div class="features-list">
+          <span class="feature-tag">UV400 Protection</span>
+          <span class="feature-tag">Polarized Lenses</span>
+          <span class="feature-tag">Prescription Sunglasses</span>
+          <span class="feature-tag">Sports Sunwear</span>
+        </div>
+      </div>
+    </div>
+    <div class="service-row">
+      <div class="sr-left">
+        <div class="sr-num">04</div>
+        <div class="sr-icon-big">🟤</div>
+        <div class="sr-title">Contact Lenses</div>
+      </div>
+      <div class="sr-right">
+        <h4>Freedom Without Frames</h4>
+        <p>Contact lenses offer a glasses-free lifestyle without compromising on clarity. Our contact lens fitting service is thorough and patient — we take time to ensure your lenses fit comfortably and your vision is perfectly corrected.</p>
+        <p>We carry daily disposables, monthly lenses, toric lenses for astigmatism, and multifocal contacts from leading brands.</p>
+        <div class="features-list">
+          <span class="feature-tag">Daily Disposables</span>
+          <span class="feature-tag">Monthly Lenses</span>
+          <span class="feature-tag">Toric (Astigmatism)</span>
+          <span class="feature-tag">Multifocal Contacts</span>
+          <span class="feature-tag">Colour Contacts</span>
+        </div>
+      </div>
+    </div>
+    <div class="service-row">
+      <div class="sr-left">
+        <div class="sr-num">05</div>
+        <div class="sr-icon-big">🔧</div>
+        <div class="sr-title">Frame Repairs</div>
+      </div>
+      <div class="sr-right">
+        <h4>Back to Perfect in No Time</h4>
+        <p>Accidents happen. Our technicians can repair most frame damage quickly and affordably — from replacing a missing screw to repairing broken bridges and adjusting bent arms. We handle both plastic and metal frames with equal expertise.</p>
+        <div class="features-list">
+          <span class="feature-tag">Screw Replacement</span>
+          <span class="feature-tag">Frame Straightening</span>
+          <span class="feature-tag">Nose Pad Replacement</span>
+          <span class="feature-tag">Hinge Repair</span>
+        </div>
+      </div>
+    </div>
+    <div class="service-row">
+      <div class="sr-left">
+        <div class="sr-num">06</div>
+        <div class="sr-icon-big">👶</div>
+        <div class="sr-title">Kids Eyewear</div>
+      </div>
+      <div class="sr-right">
+        <h4>Gentle Care for Little Eyes</h4>
+        <p>Children's vision needs are unique. Our pediatric eye examinations are designed to be gentle, engaging, and effective — detecting issues like amblyopia (lazy eye) and strabismus early, when treatment is most effective.</p>
+        <p>We stock a fun collection of durable, flexible frames in bright colors and character designs that children love to wear.</p>
+        <div class="features-list">
+          <span class="feature-tag">Pediatric Eye Tests</span>
+          <span class="feature-tag">Flexible Frames</span>
+          <span class="feature-tag">Impact-Resistant Lenses</span>
+          <span class="feature-tag">Ages 3 and Above</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ PRODUCTS ═══════════ -->
+<div class="page" id="page-products">
+  <div class="products-hero">
+    <span class="section-tag">Our Collection</span>
+    <h1>Browse <em style="color:var(--gold-light);font-style:italic">Eyewear</em></h1>
+  </div>
+  <div class="products-section">
+    <div class="filter-bar">
+      <button class="filter-btn active" onclick="filterProducts('all', this)">All</button>
+      <button class="filter-btn" onclick="filterProducts('frames', this)">Frames</button>
+      <button class="filter-btn" onclick="filterProducts('sunglasses', this)">Sunglasses</button>
+      <button class="filter-btn" onclick="filterProducts('kids', this)">Kids</button>
+      <button class="filter-btn" onclick="filterProducts('sports', this)">Sports</button>
+    </div>
+    <div class="products-grid" id="productsGrid">
+      
+      <div class="product-card" data-cat="frames">
+        <div class="product-img"><img src="images/ClassicAvatarFullRim.jpg" alt="Eyeglasses" style="width:100%; height:100%; object-fit:cover;">
+        <div class="product-badge">New Arrival</div></div>
+        <div class="product-info">
+        <div class="brand">Titan Eyewear</div>
+        <h4>Classic Aviator Full-Rim</h4>
+        <div class="product-price">LKR 7,500 <span>starting from</span></div>
+        </div>
+      </div>
+
+      <div class="product-card" data-cat="sunglasses">
+        <div class="product-img"><img src="images/Polarized Wayfarer.jpg" alt="Eyeglasses" style="width:100%; height:100%; object-fit:cover;">
+        <div class="product-badge">Bestseller</div></div>
+        <div class="product-info">
+          <div class="brand">Fastrack</div>
+          <h4>Polarized Wayfarer</h4>
+          <div class="product-price">LKR 6,800 <span>per pair</span></div>
+        </div>
+      </div>
+
+      <div class="product-card" data-cat="frames">
+        <div class="product-img"><img src="images/Round Metal Half-Rim.jpg" alt="Eyeglasses" style="width:100%; height:100%; object-fit:cover;">
+        <div class="product-badge">Cheap but Good</div></div>
+        <div class="product-info">
+          <div class="brand">Lenskart</div>
+          <h4>Round Metal Half-Rim</h4>
+          <div class="product-price">LKR 5,200 <span>starting from</span></div>
+        </div>
+      </div>
+
+      <div class="product-card" data-cat="kids">
+        <div class="product-img"><img src="images/Flexible Fun Frame.jpg" alt="Eyeglasses" style="width:100%; height:100%; object-fit:cover;">
+	<div class="product-badge">Kids</div></div>
+        <div class="product-info">
+          <div class="brand">Disney Kids</div>
+          <h4>Flexible Fun Frame</h4>
+          <div class="product-price">LKR 4,800 <span>per pair</span></div>
+        </div>
+      </div>
+
+      <div class="product-card" data-cat="sunglasses">
+        <div class="product-img"><img src="images/Sports Wraparound UV400.jpg" alt="Eyeglasses" style="width:100%; height:100%; object-fit:cover;"></div>
+        <div class="product-info">
+          <div class="brand">Oakley</div>
+          <h4>Sports Wraparound UV400</h4>
+          <div class="product-price">LKR 12,500 <span>per pair</span></div>
+        </div>
+      </div>
+
+      <div class="product-card" data-cat="frames">
+        <div class="product-img"><img src="images/Clubmaster Classic.jpg" alt="Eyeglasses" style="width:100%; height:100%; object-fit:cover;"></div>
+        <div class="product-info">
+          <div class="brand">Ray-Ban</div>
+          <h4>Clubmaster Classic</h4>
+          <div class="product-price">LKR 12,000 <span>per pair</span></div>
+        </div>
+      </div>
+
+      <div class="product-card" data-cat="sports">
+        <div class="product-img"><img src="images/SportsPerformace.jpg" alt="Eyeglasses" style="width:100%; height:100%; object-fit:cover;"></div>
+        <div class="product-info">
+          <div class="brand">Nike Vision</div>
+          <h4>Sport Performance Frame</h4>
+          <div class="product-price">LKR 9,500 <span>per pair</span></div>
+        </div>
+      </div>
+
+      <div class="product-card" data-cat="kids">
+        <div class="product-img"><img src="images/Rainbow Soft Silicone.jpg" alt="Eyeglasses" style="width:100%; height:100%; object-fit:cover;"></div>
+        <div class="product-info">
+          <div class="brand">Tiger Kids</div>
+          <h4>Rainbow Soft Silicone</h4>
+          <div class="product-price">LKR 5,200 <span>per pair</span></div>
+        </div>
+      </div>
+
+      <div class="product-card" data-cat="frames">
+        <div class="product-img"><img src="images/Elegant Cat-Eye Frame.jpg" alt="Eyeglasses" style="width:100%; height:100%; object-fit:cover;"></div>
+        <div class="product-info">
+          <div class="brand">Escada</div>
+          <h4>Elegant Cat-Eye Frame</h4>
+          <div class="product-price">LKR 7,200 <span>starting from</span></div>
+        </div>
+      </div>
+    </div>
+    <p style="text-align:center;margin-top:3rem;font-size:13px;color:var(--text-light)">Prices shown are starting prices. Visit us in-store for the full collection and personalised assistance. All prices in LKR.</p>
+  </div>
+</div>
+
+<!-- ═══════════ APPOINTMENT ═══════════ -->
+<div class="page" id="page-appointment">
+  <div class="appt-hero">
+    <span class="section-tag">Book a Visit</span>
+    <h1>Schedule an <em style="color:var(--gold-light);font-style:italic">Appointment</em></h1>
+  </div>
+  <div class="appt-section">
+    <div class="appt-grid">
+      <div class="appt-info">
+        <h3>Visit Us at SISILA OPTICALS</h3>
+        <p>Book your appointment online and skip the wait. We offer eye examinations, frame consultations, and contact lens fittings. Walk-ins are welcome, but appointments are prioritised.</p>
+        <h4 style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:1rem">Opening Hours</h4>
+        <div class="hours-list">
+          <div class="hours-item"><span class="day">Monday – Friday</span><span class="time">8:30 AM – 6:00 PM</span></div>
+          <div class="hours-item"><span class="day">Saturday</span><span class="time">8:30 AM – 5:00 PM</span></div>
+          <div class="hours-item"><span class="day">Sunday</span><span class="time">10:00 AM – 2:00 PM</span></div>
+          <div class="hours-item"><span class="day">Public Holidays</span><span class="time">Closed</span></div>
+        </div>
+        <div style="margin-top:2rem;padding:1.5rem;background:var(--cream-mid);border-left:3px solid var(--gold)">
+          <p style="font-size:13px;color:var(--text-mid);line-height:1.7">📍 #24, Kamburupitiya Road, Akuressa, Sri Lanka<br>📞 Call us for urgent enquiries<br>💬 077 555 7347 WhatsApp available</p>
+        </div>
+      </div>
+      <div>
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:var(--navy);margin-bottom:1.5rem;font-weight:300">Book Your Appointment</h3>
+        <div class="form-row">
+          <div class="form-group">
+            <label>First Name</label>
+            <input type="text" id="fname" placeholder="e.g. Kamal">
+          </div>
+          <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" id="lname" placeholder="e.g. Perera">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Phone Number</label>
+          <input type="tel" id="phone" placeholder="e.g. 0712 345 678">
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" id="email" placeholder="your@email.com">
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Preferred Date</label>
+            <input type="date" id="appt-date">
+          </div>
+          <div class="form-group">
+  <label>Preferred Time</label>
+  <select id="appt-time">
+    <option value="">Select time</option>
+    <option value="8:30 AM">8:30 AM</option>
+    <option value="9:00 AM">9:00 AM</option>
+    <option value="9:30 AM">9:30 AM</option>
+    <option value="10:00 AM">10:00 AM</option>
+    <option value="10:30 AM">10:30 AM</option>
+    <option value="11:00 AM">11:00 AM</option>
+    <option value="2:00 PM">2:00 PM</option>
+    <option value="2:30 PM">2:30 PM</option>
+    <option value="3:00 PM">3:00 PM</option>
+    <option value="4:00 PM">4:00 PM</option>
+  </select>
+</div>
+        </div>
+        <div class="form-group">
+          <label>Service Required</label>
+          <select id="service-type">
+            <option value="">Select service</option>
+            <option>Eye Examination</option>
+            <option>Prescription Glasses Consultation</option>
+            <option>Contact Lens Fitting</option>
+            <option>Sunglasses Selection</option>
+            <option>Kids Eye Test</option>
+            <option>Frame Repair</option>
+            <option>General Enquiry</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Additional Notes</label>
+          <textarea id="notes" placeholder="Any specific concerns or requirements..."></textarea>
+        </div>
+        <button class="btn-primary" style="width:100%" onclick="submitAppointment()">Confirm Appointment</button>
+        <div class="success-msg" id="successMsg">
+          ✓ &nbsp; Thank you! Your appointment request has been received. Our team will confirm your booking shortly via phone or email.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ CONTACT ═══════════ -->
+<div class="page" id="page-contact">
+  <div class="contact-hero">
+    <span class="section-tag">Get in Touch</span>
+    <h1>Contact <em style="color:var(--gold-light);font-style:italic">Us</em></h1>
+  </div>
+  <div class="contact-section">
+    <div class="contact-grid">
+      <div>
+        <div class="section-tag">Find Us</div>
+        <h2 class="section-title" style="margin-bottom:2rem">We'd Love to<br><em>Hear From You</em></h2>
+        <div class="contact-details">
+          <div class="contact-item">
+            <div class="ci-icon">📍</div>
+            <div class="ci-info">
+              <label>Address</label>
+              <p>#24, Kamburupitiya Road<br>Akuressa, Sri Lanka</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="ci-icon">📞</div>
+            <div class="ci-info">
+              <label>Phone</label>
+              <p>077 555 7347<br>WhatsApp welcome</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="ci-icon">✉️</div>
+            <div class="ci-info">
+              <label>Email</label>
+              <p>sisilaopticals@gmail.com</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="ci-icon">🕐</div>
+            <div class="ci-info">
+              <label>Business Hours</label>
+              <p>Mon–Fri: 8:30 AM – 6:00 PM<br>Sat: 8:30 AM – 5:00 PM<br>Sun: 10:00 AM – 2:00 PM</p>
+            </div>
+          </div>
+        </div>
+
+	<div class="map-placeholder">
+  	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4008.5517761690858!2d80.4761140398654!3d6.100168380293368!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!	1s0x3ae14357b7292231%3A0xb8cea695e4c955a0!2sSisila%20Pharmacy%20%26%20Sisila%20Opticals!5e1!3m2!1sen!2slk!4v1780115515362!5m2!1sen!2slk" 
+	width="600" 
+	height="450" 
+	style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+	</iframe>
+  	<p style="margin-top:8px;">📍 #24, Kamburupitiya Rd, Akuressa</p>
+	</div>
+
+      </div>
+      <div>
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:var(--navy);margin-bottom:1.5rem;font-weight:300">Send Us a Message</h3>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Your Name</label>
+            <input type="text" id="cname" placeholder="Nuwan Basnayaka">
+          </div>
+          <div class="form-group">
+            <label>Phone</label>
+            <input type="tel" id="cphone" placeholder="077 555 7347">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" id="cemail" placeholder="nuwanpb@email.com">
+        </div>
+        <div class="form-group">
+          <label>Subject</label>
+          <input type="text" id="csubject" placeholder="How can we help?">
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea id="cmessage" style="min-height:140px" placeholder="Write your message here..."></textarea>
+        </div>
+        <button class="btn-primary" style="width:100%" onclick="submitContact()">Send Message</button>
+        <div class="success-msg" id="contactSuccessMsg">
+          ✓ &nbsp; Message received! We'll get back to you within 24 hours during business days.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <a class="logo" href="#" onclick="showPage('home')">
+        <div class="logo-icon" style="border-color:rgba(201,168,76,0.4)">👁</div>
+        <div class="logo-text">
+          <span class="brand">SISILA OPTICALS</span>
+          <span class="sub">Est. Akuressa, Sri Lanka</span>
+        </div>
+      </a>
+      <p class="footer-tagline">Providing clear vision and expert optical care to the people of Akuressa and the Southern Province since our founding.</p>
+      <div class="social-row">
+        <a class="social-btn" href="https://www.facebook.com/sisilaopticals" title="Facebook">f</a>
+        <a class="social-btn" href="#" title="Instagram">in</a>
+        <a class="social-btn" href="https://wa.me/94775557347" title="WhatsApp">w</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5>Navigate</h5>
+      <ul>
+        <li><a onclick="showPage('home')">Home</a></li>
+        <li><a onclick="showPage('about')">About Us</a></li>
+        <li><a onclick="showPage('services')">Services</a></li>
+        <li><a onclick="showPage('products')">Products</a></li>
+        <li><a onclick="showPage('appointment')">Appointments</a></li>
+        <li><a onclick="showPage('contact')">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Services</h5>
+      <ul>
+        <li><a onclick="showPage('services')">Eye Examinations</a></li>
+        <li><a onclick="showPage('services')">Prescription Glasses</a></li>
+        <li><a onclick="showPage('services')">Sunglasses</a></li>
+        <li><a onclick="showPage('services')">Contact Lenses</a></li>
+        <li><a onclick="showPage('services')">Frame Repairs</a></li>
+        <li><a onclick="showPage('services')">Kids Eyewear</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Contact</h5>
+      <ul>
+        <li><a>#24, Kamburupitiya Rd</a></li>
+        <li><a>Akuressa, Sri Lanka</a></li>
+        <li><a>sisilaopticals@gmail.com</a></li>
+        <li style="margin-top:0.5rem"><a>Mon–Fri: 8:30–18:00</a></li>
+        <li><a>Sat: 8:30–17:00</a></li>
+        <li><a>Sun: 10:00–14:00</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 SISILA OPTICALS. All rights reserved. #24, Kamburupitiya Road, Akuressa, Sri Lanka.</p>
+    <p>Designed with ❤️ for clear vision</p>
+  </div>
+</footer>
+
+<!-- WhatsApp Button -->
+<a class="wa-btn" href="https://wa.me/94775557347" target="_blank" title="Chat on WhatsApp">💬</a>
+
+<script>
+
+// Replace these three values with your EmailJS credentials
+const EMAILJS_SERVICE_ID  = 'service_0uuse4y'; //service_0uuse4y
+const EMAILJS_TEMPLATE_ID = 'template_vljcofy';
+const EMAILJS_PUBLIC_KEY  = 'cygJC93ArY3IQv418';
+
+function submitAppointment() {
+	
+  const fields = ['fname','lname','phone','email','appt-date','appt-time','service-type'];
+  const empty = fields.some(f => !document.getElementById(f).value.trim());
+  if(empty)
+  {
+    alert('Please fill in all required fields.');
+    return;
+  }
+
+  document.getElementById('successMsg').style.display = 'block';
+  document.getElementById('successMsg').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+
+  // Collect form values
+  const templateParams = {
+    first_name:   document.getElementById('fname').value.trim(),
+    last_name:    document.getElementById('lname').value.trim(),
+    phone:        document.getElementById('phone').value.trim(),
+    email:        document.getElementById('email').value.trim(),
+    appt_date:    document.getElementById('appt-date').value,
+    appt_time:    document.getElementById('appt-time').value.trim(),
+    service_type: document.getElementById('service-type').value.trim(),
+  };
+
+
+  // Disable button to prevent double-submit
+  const btn = document.querySelector('button[onclick="submitAppointment()"]');
+  if (btn) btn.disabled = true;
+
+  emailjs
+    .send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams, EMAILJS_PUBLIC_KEY)
+    .then(() => {
+      const msg = document.getElementById('successMsg');
+      msg.style.display = 'block';
+      msg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    })
+    	.catch(err => {
+  	console.error('EmailJS error:', err);
+  	alert('Error ' + err.status + ': ' + err.text);
+	});
+}
+
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('page-' + id).classList.add('active');
+  document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+  const navMap = { home: 0, about: 1, services: 2, products: 3, appointment: 4, contact: 5 };
+  const links = document.querySelectorAll('.nav-links a:not(.nav-cta)');
+  if (links[navMap[id]]) links[navMap[id]].classList.add('active');
+  window.scrollTo(0, 0);
+  closeMenu();
+}
+
+function toggleMenu() {
+  document.getElementById('navLinks').classList.toggle('open');
+}
+function closeMenu() {
+  document.getElementById('navLinks').classList.remove('open');
+}
+
+function filterProducts(cat, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.product-card').forEach(card => {
+    if (cat === 'all' || card.dataset.cat === cat) {
+      card.style.display = 'block';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+
+
+function submitContact() {
+  const EMAILJS_TEMPLATE_ID_CONTACT = 'template_n5mfi8t';
+
+  const fields = ['cname','cphone','cemail','csubject','cmessage'];
+  const empty = fields.some(f => !document.getElementById(f).value.trim());
+  if (empty) { alert('Please fill in your name, email and message.'); return; }
+
+  document.getElementById('contactSuccessMsg').style.display = 'block';
+  document.getElementById('contactSuccessMsg').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+  // Collect form values
+  const templateParams = {
+    name:         document.getElementById('cname').value.trim(),
+    phone:        document.getElementById('cphone').value.trim(),
+    email:        document.getElementById('cemail').value.trim(),
+    subject:      document.getElementById('csubject').value.trim(),
+    message:      document.getElementById('cmessage').value.trim(),
+  };
+
+   // Disable button to prevent double-submit
+  const btn = document.querySelector('button[onclick="submitContact()"]');
+  if (btn) btn.disabled = true;
+
+  emailjs
+    .send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID_CONTACT, templateParams, EMAILJS_PUBLIC_KEY)
+    .then(() => {
+      const msg = document.getElementById('successMsg');
+      msg.style.display = 'block';
+      msg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    })
+    	.catch(err => {
+  	console.error('EmailJS error:', err);
+  	alert('Error ' + err.status + ': ' + err.text);
+	});
+}
+
+// Set min date for appointment to today
+const today = new Date().toISOString().split('T')[0];
+const dateInput = document.getElementById('appt-date');
+if (dateInput) dateInput.min = today;
+</script>
+</body>
+</html>
